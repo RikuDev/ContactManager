@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<!--<input type="text" ng-model="test"/>-->
+<html ng-app="ContactManagerApp">
+<body>
+</body>
+</html>
+
+<head>
+    <script src="Scripts/jquery-1.10.2.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-route.js"></script>
+    <script src="Scripts/angular-resource.js"></script>
+    <script src="Scripts/app.js"></script>
+    <link rel="stylesheet" type="text/css" href="Content/bootstrap.css" />
+    <title>Contact Manager App</title>
+</head>
+
+<h2>Add Customer</h2>
+
+<form name="form" class="form-horizontal">
+
+    <div class="control-group" ng-class="{error: form.ID.$invalid}">
+        <label class="control-label" for="ID">ID</label>
+        <div class="controls">
+            <input type="number" ng-model="item.ID" id="ID" name="=ID" placeholder="">
+        </div>
+    </div>
+
+    <div class="control-group" ng-class="{error: form.Name.$invalid}">
+        <label class="control-label" for="Name">Name</label>
+        <div class="controls">
+            <input type="text" ng-model="item.Name" id="Name" name="=Name" placeholder="">
+        </div>
+    </div>
+
+    <div class="control-group" ng-class="{error: form.Latitude.$invalid}">
+        <label class="control-label" for="Latitude">Latitude</label>
+        <div class="controls">
+            <input type="text" ng-model="item.Latitude" id="Latitude" name="=Latitude" placeholder="">
+        </div>
+    </div>
+
+    <div class="control-group" ng-class="{error: form.Longitude.$invalid}">
+        <label class="control-label" for="Longitude">Longitude</label>
+        <div class="controls">
+            <input type="text" ng-model="item.Longitude" id="Longitude" name="=Longitude" placeholder="">
+        </div>
+    </div>
+
+    <div class="form-actions">
+        <button ng-click="save()" class="btn btn-primary">
+            Submit
+        </button>
+        <a href="#/list.html" target="_self" class="btn">Cancel</a>
+    </div>
+</form>

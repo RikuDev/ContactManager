@@ -17,9 +17,21 @@ namespace CustomerContactManager.Controllers
         private CustomerInfoContext db = new CustomerInfoContext();
 
         // GET: api/CustomerInfo
-        public IQueryable<CustomerInfo> GetCustomerInfoes()
+        public IEnumerable<CustomerInfo> GetCustomerInfo(string q = null, string sort = null, bool desc = false,
+                                                        int? limit = null, int offset = 0)
         {
-            return db.CustomerInfoes;
+            var list = ((IObjectContextAdapter)db).ObjectContext.CreateObjectSet<CustomerInfo>();
+
+            IQueryable<CustomerInfo> items = string.IsNullOrEmpty(sort)
+                ? list.OrderBy(o => o.ID)
+                : list.OrderBy(String.Format("it.{0} {1}", sort, desc ? "DESC" : "ASC"));
+
+            if (!string.IsNullOrEmpty(q) && q != "undefined")
+                items = items.Where(t => t.Name.Contains(q));
+
+            if (offset > 0) items = items.Skip(offset);
+            if (limit.HasValue) items = items.Take(limit.Value);
+            return items;
         }
 
         // GET: api/CustomerInfo/5
