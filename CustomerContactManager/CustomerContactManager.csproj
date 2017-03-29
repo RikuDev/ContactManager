@@ -249,8 +249,8 @@
     <Compile Include="Migrations\201703272042448_InitialCreate.Designer.cs">
       <DependentUpon>201703272042448_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\CustomerConfiguration.cs" />
-    <Compile Include="Migrations\ContactConfiguration.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\ContactsConfiguration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ContactInfo.cs" />
